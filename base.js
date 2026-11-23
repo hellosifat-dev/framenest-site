@@ -5,9 +5,8 @@
 
   function stored() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
   function save(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
-  function systemDark() { return window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches; }
 
-  var initial = stored() || (systemDark() ? 'dark' : 'light');
+  var initial = stored() || 'light'; // light by default; the toggle switches to dark
   root.setAttribute('data-theme', initial);
 
   document.addEventListener('DOMContentLoaded', function () {
